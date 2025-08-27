@@ -16,6 +16,10 @@ object pepe {
     method bonoPresentismo(){return bonoPresentismo}
     method faltas(){return faltas}
 
+    method sueldo(){
+        return categoria.neto() + bonoResultados.valor() + bonoPresentismo.valor(self)
+    }
+
     // Setters
     method categoria(_categoria){
         categoria = _categoria
