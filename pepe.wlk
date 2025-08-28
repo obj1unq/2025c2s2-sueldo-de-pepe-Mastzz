@@ -1,7 +1,7 @@
 object pepe {
     // Atributos
 	var categoria=gerente
-    // var bonoResultados
+    var bonoResultados=bonoPorcentaje
     // var bonoPresentismo
     var faltas=0
 
@@ -15,19 +15,19 @@ object pepe {
 
     // Getters
     method categoria(){return categoria}
-    // method bonoResultados(){return bonoResultados}
+    method bonoResultados(){return bonoResultados}
     // method bonoPresentismo(){return bonoPresentismo}
     method faltas(){return faltas}
-
+    method neto(){return self.categoria().neto()}
     
 
     // Setters
     method categoria(_categoria){
         categoria = _categoria
     }
-    // method bonoResultados(_bonoResultados){
-    //     bonoResultados = _bonoResultados
-    // }
+    method bonoResultados(_bonoResultados){
+        bonoResultados = _bonoResultados
+    }
     // method bonoPresentismo(_bonoPresentismo){
     //     bonoPresentismo = _bonoPresentismo
     // }
@@ -47,3 +47,19 @@ object cadete {
 }
 
 // Bono por resultados
+// El porcentaje necesita una referencia al empleado, y para no romper con el polimorfismo debo mantener la misma firma en los otros 2 bonos...
+object bonoPorcentaje {
+  method valor(empleado) {
+    return empleado.neto() * 0.1
+  }
+}
+object bonoFijo {
+  method valor(empleado){
+    return 800
+  }
+}
+object bonoNulo {
+  method valor(empleado){
+    return 0
+  }
+}
