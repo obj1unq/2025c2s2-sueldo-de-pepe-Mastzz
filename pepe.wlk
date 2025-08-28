@@ -63,3 +63,18 @@ object bonoNulo {
     return 0
   }
 }
+
+// Bono por presentismo
+object bonoNormal {
+  // Lo mejor seria solo dentro del método devolver un valor en formato expresion condicional, pero no conozco tal herramienta en wollok (en intro era un choose). Tampoco deja early returns el lenguaje. Asi que se me ocurrio trackear con una variable el resultado a devolver. *** Si falto más de 1 vez, no se setea nada y devuelve el valor por defecto $0 ***
+  var valor=0
+  method valor(empleado) {
+     if(empleado.faltas() == 0){
+        valor=2000
+     }
+     else if(empleado.faltas() == 1){
+        valor=1000
+     }
+    return valor
+  }
+}
