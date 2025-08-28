@@ -1,9 +1,9 @@
 object pepe {
     // Atributos
 	var categoria=gerente
-    var bonoResultados=bonoPorcentaje
-    // var bonoPresentismo
-    var faltas=0
+  var bonoResultados=bonoPorcentaje
+  var bonoPresentismo=bonoNormal
+  var faltas=0
 
 
 
@@ -16,7 +16,7 @@ object pepe {
     // Getters
     method categoria(){return categoria}
     method bonoResultados(){return bonoResultados}
-    // method bonoPresentismo(){return bonoPresentismo}
+    method bonoPresentismo(){return bonoPresentismo}
     method faltas(){return faltas}
     method neto(){return self.categoria().neto()}
     
@@ -28,9 +28,9 @@ object pepe {
     method bonoResultados(_bonoResultados){
         bonoResultados = _bonoResultados
     }
-    // method bonoPresentismo(_bonoPresentismo){
-    //     bonoPresentismo = _bonoPresentismo
-    // }
+    method bonoPresentismo(_bonoPresentismo){
+        bonoPresentismo = _bonoPresentismo
+    }
     method faltas(_faltas){
         faltas = _faltas
     }
