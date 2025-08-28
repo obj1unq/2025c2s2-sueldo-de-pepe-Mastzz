@@ -5,12 +5,9 @@ object pepe {
   var bonoPresentismo=bonoNormal
   var faltas=0
 
-
-
-
     // Comportamientos
     // method sueldo(){
-    //     return categoria.neto() + bonoResultados.valor() + bonoPresentismo.valor(self)
+    //     return categoria.neto() + bonoResultados.valor(self) + bonoPresentismo.valor(self)
     // }
 
     // Getters
