@@ -78,3 +78,12 @@ object bonoNormal {
     return valor
   }
 }
+object bonoAjuste {
+  var valor=0
+  method valor(empleado) {
+    if(empleado.faltas() == 0){
+      valor=100
+    }
+    return valor
+  }
+}
