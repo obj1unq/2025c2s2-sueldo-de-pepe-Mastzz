@@ -1,8 +1,8 @@
 object pepe {
     // Atributos
-	var categoria=gerente
-  var bonoResultado=bonoPorcentaje
-  var bonoPresentismo=bonoNormal
+	var categoria=categoriaGerente
+  var bonoResultado=bonoResPorcentaje
+  var bonoPresentismo=bonoPresNormal
   var faltas=0
 
     // Comportamientos
@@ -34,23 +34,23 @@ object pepe {
 }
 
 // Categorías
-object gerente{
+object categoriaGerente{
     var neto=15000
     method neto(){return neto}
 }
-object cadete {
+object categoriaCadete {
   var neto=20000
   method neto(){return neto}
 }
 
 // Bono por resultados
 // El porcentaje necesita una referencia al empleado, y para no romper con el polimorfismo debo mantener la misma firma en los otros 2 bonos...
-object bonoPorcentaje {
+object bonoResPorcentaje {
   method valor(empleado) {
     return empleado.neto() * 0.1
   }
 }
-object bonoFijo {
+object bonoResFijo {
   method valor(empleado){
     return 800
   }
@@ -62,7 +62,7 @@ object bonoNulo {
 }
 
 // Bono por presentismo
-object bonoNormal {
+object bonoPresNormal {
   // Lo mejor seria solo dentro del método devolver un valor en formato expresion condicional, pero no conozco tal herramienta en wollok (en intro era un choose). Tampoco deja early returns el lenguaje. Asi que se me ocurrio trackear con una variable el resultado a devolver. *** Si falto más de 1 vez, no se setea nada y devuelve el valor por defecto $0 ***
   var valor=0
   method valor(empleado) {
@@ -75,7 +75,7 @@ object bonoNormal {
     return valor
   }
 }
-object bonoAjuste {
+object bonoPresAjuste {
   var valor=0
   method valor(empleado) {
     if(empleado.faltas() == 0){

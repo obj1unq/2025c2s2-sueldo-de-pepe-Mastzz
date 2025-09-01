@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="2vCs8MfiK8aJ5e3EdZrz" name="Page-1">
-        <mxGraphModel dx="813" dy="513" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1086" dy="787" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -173,10 +173,10 @@
                 <mxCell id="75" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Respecto a pepe, todas estas se polimorfan&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="1195" y="720" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="76" value="&lt;span&gt;Identifico a estas 3 como objetos, por que en definitiva, es responsabilidad de estos tipos lo que se pide&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+                <mxCell id="76" value="&lt;span&gt;Identifico a estas 3 como objetos, por que en definitiva, es responsabilidad de estos tipos lo que se pide&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" parent="1" vertex="1">
                     <mxGeometry x="750" y="350" width="240" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="79" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.uTurnArrow;dy=11;arrowHead=43;dx2=22.63;rotation=120;" vertex="1" parent="1">
+                <mxCell id="79" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.uTurnArrow;dy=11;arrowHead=43;dx2=22.63;rotation=120;" parent="1" vertex="1">
                     <mxGeometry x="1019.9999999999999" y="261.65" width="74.11" height="138.35" as="geometry"/>
                 </mxCell>
             </root>
