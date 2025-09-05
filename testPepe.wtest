@@ -26,3 +26,25 @@ describe "Bono por resultados"{
 		assert.equals(800, pepe.extraPorResultado())
 	}
 }
+
+describe "Bono por presentismo" {
+  test "Bono: Nulo" {
+	pepe.bonoPresentismo(bonoNulo)
+	assert.equals(0, pepe.extraPorPresentismo())
+  }
+  test "Bono: Normal"{
+	pepe.bonoPresentismo(bonoPresNormal)
+	pepe.faltas(0)
+	assert.equals(2000, pepe.extraPorPresentismo())
+	pepe.faltas(1)
+	assert.equals(1000, pepe.extraPorPresentismo())
+	pepe.faltas(10)
+	assert.equals(0, pepe.extraPorPresentismo())
+  }
+  test "Bono: Ajuste"{
+
+  }
+  test "Bono: Demagogico"{
+
+  }
+}
