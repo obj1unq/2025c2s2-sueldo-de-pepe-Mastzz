@@ -22,12 +22,12 @@ object pepe {
 // Categorías
 object categoriaGerente{
   method neto(){
-    return 20000
+    return 15000
   }
 }
 object categoriaCadete {
   method neto(){
-    return 15000
+    return 20000
   }
 }
 

@@ -1,10 +1,28 @@
 import pepe.*
 
-describe "Sueldo Pepe" {
-	
-	test "Test 1" {
-		//TODO: Implementame
+describe "Categorias"{
+	test "Sueldo neto"{
+		pepe.categoria(categoriaGerente)
+		assert.equals(15000, pepe.sueldoNeto())
+		pepe.categoria(categoriaCadete)
+		assert.equals(20000, pepe.sueldoNeto())
 	}
+}
 
-	
+describe "Bono por resultados"{
+	method initialize(){
+		pepe.categoria(categoriaCadete)
+	}
+	test "Bono: Nulo"{
+		pepe.bonoResultado(bonoNulo)
+		assert.equals(0, pepe.extraPorResultado())
+	}
+	test "Bono: Porcentaje"{
+		pepe.bonoResultado(bonoResPorcentaje)
+		assert.equals(2000, pepe.extraPorResultado())
+	}
+	test "Bono: Monto fijo"{
+		pepe.bonoResultado(bonoResFijo)
+		assert.equals(800, pepe.extraPorResultado())
+	}
 }
