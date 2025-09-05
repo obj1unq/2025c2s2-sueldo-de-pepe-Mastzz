@@ -42,7 +42,11 @@ describe "Bono por presentismo" {
 	assert.equals(0, pepe.extraPorPresentismo())
   }
   test "Bono: Ajuste"{
-
+	pepe.bonoPresentismo(bonoPresAjuste)
+	pepe.faltas(0)
+	assert.equals(100, pepe.extraPorPresentismo())
+	pepe.faltas(2)
+	assert.equals(0, pepe.extraPorPresentismo())
   }
   test "Bono: Demagogico"{
 

@@ -64,6 +64,6 @@ object bonoPresDemagogico {
 }
 object bonoPresAjuste {
   method valor(empleado){
-    return if (empleado.sueldoNeto() > 0) 0 else 100
+    return if (empleado.faltas() > 0) 0 else 100
   }
 }
