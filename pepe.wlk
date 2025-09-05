@@ -1,16 +1,13 @@
 object pepe {
-    // Atributos
 	var property categoria=categoriaGerente
   var property bonoResultado=bonoResPorcentaje
   var property bonoPresentismo=bonoPresNormal
   var property faltas=0
 
-    // Comportamientos
     method sueldo(){
         return self.sueldoNeto() + self.extraPorResultado() + self.extraPorPresentismo()
     }
 
-    // Getters
     method sueldoNeto(){
       return categoria.neto()
     }
@@ -20,35 +17,18 @@ object pepe {
     method extraPorPresentismo(){
       return bonoPresentismo.valor(self)
     }
-    method bonoResultado(){return bonoResultado}
-    method bonoPresentismo(){return bonoPresentismo}
-    method faltas(){return faltas}
-    method neto(){return self.categoria().neto()}
-    
-
-    // Setters
-    method categoria(_categoria){
-        categoria = _categoria
-    }
-    method bonoResultado(_bonoResultados){
-        bonoResultado = _bonoResultados
-    }
-    method bonoPresentismo(_bonoPresentismo){
-        bonoPresentismo = _bonoPresentismo
-    }
-    method faltas(_faltas){
-        faltas = _faltas
-    }
 }
 
 // Categorías
 object categoriaGerente{
-    var neto=15000
-    method neto(){return neto}
+  method neto(){
+    return 20000
+  }
 }
 object categoriaCadete {
-  var neto=20000
-  method neto(){return neto}
+  method neto(){
+    return 15000
+  }
 }
 
 // Bono por resultados
@@ -63,6 +43,8 @@ object bonoResFijo {
     return 800
   }
 }
+
+// Válido para los 2 tipos de bonos
 object bonoNulo {
   method valor(empleado){
     return 0
@@ -71,24 +53,17 @@ object bonoNulo {
 
 // Bono por presentismo
 object bonoPresNormal {
-  // Lo mejor seria solo dentro del método devolver un valor en formato expresion condicional, pero no conozco tal herramienta en wollok (en intro era un choose). Tampoco deja early returns el lenguaje. Asi que se me ocurrio trackear con una variable el resultado a devolver. *** Si falto más de 1 vez, no se setea nada y devuelve el valor por defecto $0 ***
-  var valor=0
-  method valor(empleado) {
-     if(empleado.faltas() == 0){
-        valor=2000
-     }
-     else if(empleado.faltas() == 1){
-        valor=1000
-     }
-    return valor
+  method valor(empleado){
+    return if(empleado.faltas() == 0) 2000 else if(empleado.faltas() == 1) 1000 else 0
+  }
+}
+object bonoPresDemagogico {
+  method valor(empleado){
+    return if (empleado.sueldoNeto() < 18000) 500 else 300
   }
 }
 object bonoPresAjuste {
-  var valor=0
-  method valor(empleado) {
-    if(empleado.faltas() == 0){
-      valor=100
-    }
-    return valor
+  method valor(empleado){
+    return if (empleado.sueldoNeto() > 0) 0 else 100
   }
 }
