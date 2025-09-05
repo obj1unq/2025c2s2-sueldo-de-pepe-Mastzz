@@ -35,7 +35,7 @@ object categoriaCadete {
 // El porcentaje necesita una referencia al empleado, y para no romper con el polimorfismo debo mantener la misma firma en los otros 2 bonos...
 object bonoResPorcentaje {
   method valor(empleado) {
-    return empleado.neto() * 0.1
+    return empleado.sueldoNeto() * 0.1
   }
 }
 object bonoResFijo {
