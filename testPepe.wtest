@@ -1,10 +1,88 @@
 import pepe.*
 
-describe "Sueldo Pepe" {
-	
-	test "Test 1" {
-		//TODO: Implementame
+describe "Categorias"{
+	test "Sueldo neto"{
+		pepe.categoria(categoriaGerente)
+		assert.equals(15000, pepe.sueldoNeto())
+		pepe.categoria(categoriaCadete)
+		assert.equals(20000, pepe.sueldoNeto())
 	}
+}
 
-	
+describe "Bono por resultados"{
+	method initialize(){
+		pepe.categoria(categoriaCadete)
+	}
+	test "Bono: Nulo"{
+		pepe.bonoResultado(bonoNulo)
+		assert.equals(0, pepe.extraPorResultado())
+	}
+	test "Bono: Porcentaje"{
+		pepe.bonoResultado(bonoResPorcentaje)
+		assert.equals(2000, pepe.extraPorResultado())
+	}
+	test "Bono: Monto fijo"{
+		pepe.bonoResultado(bonoResFijo)
+		assert.equals(800, pepe.extraPorResultado())
+	}
+}
+
+describe "Bono por presentismo" {
+  test "Bono: Nulo" {
+	pepe.bonoPresentismo(bonoNulo)
+	assert.equals(0, pepe.extraPorPresentismo())
+  }
+  test "Bono: Normal"{
+	pepe.bonoPresentismo(bonoPresNormal)
+	pepe.faltas(0)
+	assert.equals(2000, pepe.extraPorPresentismo())
+	pepe.faltas(1)
+	assert.equals(1000, pepe.extraPorPresentismo())
+	pepe.faltas(10)
+	assert.equals(0, pepe.extraPorPresentismo())
+  }
+  test "Bono: Ajuste"{
+	pepe.bonoPresentismo(bonoPresAjuste)
+	pepe.faltas(0)
+	assert.equals(100, pepe.extraPorPresentismo())
+	pepe.faltas(2)
+	assert.equals(0, pepe.extraPorPresentismo())
+  }
+  test "Bono: Demagogico"{
+	pepe.categoria(categoriaGerente)
+	pepe.bonoPresentismo(bonoPresDemagogico)
+	assert.equals(500, pepe.extraPorPresentismo())
+	pepe.categoria(categoriaCadete)
+	assert.equals(300, pepe.extraPorPresentismo())
+  }
+}
+
+describe "Ejercicio: Casos de prueba" {
+  test "Caso 1: Pepe es cadete tiene bono por resultado de monto fijo, bono de presentismo normal y falto 3 días" {
+	pepe.categoria(categoriaCadete)
+	pepe.bonoResultado(bonoResFijo)
+	pepe.bonoPresentismo(bonoPresNormal)
+	pepe.faltas(3)
+	assert.that(pepe.sueldo() == 20800)
+  }
+  test "Caso 2: Pepe es gerente, tiene bono por resultado por porcentaje, bono de presentismo nulo" {
+	pepe.categoria(categoriaGerente)
+	pepe.bonoResultado(bonoResPorcentaje)
+	pepe.bonoPresentismo(bonoNulo)
+	assert.that(pepe.sueldo() == 16500)
+  }
+  test "Caso 3: Pepe es cadete, tiene bono por resultado por porcentaje, bono por presentismo normal y nunca faltó" {
+	pepe.categoria(categoriaCadete)
+	pepe.bonoResultado(bonoResPorcentaje)
+	pepe.bonoPresentismo(bonoPresNormal)
+	pepe.faltas(0)
+	assert.that(pepe.sueldo() == 24000)
+  }
+  test "Caso 4: Pepe es cadete, tiene bono por resultados por porcentaje, bono por presentismo normal y faltó 1 día" {
+	pepe.categoria(categoriaCadete)
+	pepe.bonoResultado(bonoResPorcentaje)
+	pepe.bonoPresentismo(bonoPresNormal)
+	pepe.faltas(1)
+	assert.that(pepe.sueldo() == 23000)
+  }
 }
