@@ -51,3 +51,18 @@ object roque {
     return bonoResultado.valor(self)
   }
 }
+
+object ernesto {
+  var property compañero = roque
+  var property faltas = 0
+  var property bonoPresentismo = bonoPresNormal
+  method sueldoNeto(){
+    return compañero.sueldoNeto()
+  }
+  method sueldo() {
+    return self.sueldoNeto() + self.extraPorPresentismo()
+  }
+  method extraPorPresentismo() {
+    return bonoPresentismo.valor(self)
+  }
+}

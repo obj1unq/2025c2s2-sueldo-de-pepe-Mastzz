@@ -32,3 +32,17 @@ describe "Probando a Roque" {
     assert.equals(37800, roque.sueldo())
   }
 }
+
+describe "Probando a Ernesto" {
+  method initialize(){
+    ernesto.compañero(roque)
+    ernesto.faltas(0)
+  }
+  test "Neto" {
+    assert.equals(roque.sueldoNeto(), ernesto.sueldoNeto())
+  }
+  test "Sueldo" {
+    assert.equals(30000, ernesto.sueldo())
+  }
+}
+
