@@ -1,0 +1,20 @@
+import pepe.*
+import pepeBonus.*
+describe "Probando a Sofia" {
+  test "Sueldo" {
+    sofia.categoria(categoriaCadete)
+    assert.equals(26000, sofia.sueldoNeto())
+  }
+  test "El 30% de Sofia no aplica a pepe"{
+    pepe.categoria(categoriaCadete)
+    assert.notThat(pepe.sueldoNeto() == 26000)
+  }
+}
+describe "Nuevas categorias" {
+  test "Categoria: Vendedor" {
+    categoriaVendedor.desactivarAumentoPorMuchasVentas()
+    assert.equals(16000, categoriaVendedor.neto())
+    categoriaVendedor.activarAumentoPorMuchasVentas()
+    assert.equals(20000, categoriaVendedor.neto())
+  }
+}
