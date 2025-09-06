@@ -46,3 +46,24 @@ describe "Probando a Ernesto" {
   }
 }
 
+describe "Ejercicio bonus: Casos de prueba" {
+  method initialize(){
+    medioTiempo.categoriaBase(categoriaCadete)
+    pepe.categoria(medioTiempo)
+    pepe.bonoResultado(bonoResPorcentaje)
+    pepe.bonoPresentismo(bonoPresDemagogico)
+    pepe.faltas(1)
+  }
+  test "Caso 1: Pepe tiene categoria cadete y medio tiempo. Tiene bono por resultados de porcentaje, y bono por presentismo demagógico. Falto 1 vez" {
+    assert.equals(11500, pepe.sueldo())
+  }
+  test "Caso 2: Roque tiene bono por resultados monto fijo" {
+    roque.bonoResultado(bonoResFijo)
+    assert.equals(37800, roque.sueldo())
+  }
+  test "Caso 3: Ernesto tiene como compañero a Pepe y bono por presentismo de ajuste" {
+    ernesto.compañero(pepe)
+    ernesto.bonoPresentismo(bonoPresAjuste)
+    assert.equals(10100, ernesto.sueldo())
+  }
+}
