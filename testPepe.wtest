@@ -56,3 +56,33 @@ describe "Bono por presentismo" {
 	assert.equals(300, pepe.extraPorPresentismo())
   }
 }
+
+describe "Ejercicio: Casos de prueba" {
+  test "Caso 1: Pepe es cadete tiene bono por resultado de monto fijo, bono de presentismo normal y falto 3 días" {
+	pepe.categoria(categoriaCadete)
+	pepe.bonoResultado(bonoResFijo)
+	pepe.bonoPresentismo(bonoPresNormal)
+	pepe.faltas(3)
+	assert.that(pepe.sueldo() == 20800)
+  }
+  test "Caso 2: Pepe es gerente, tiene bono por resultado por porcentaje, bono de presentismo nulo" {
+	pepe.categoria(categoriaGerente)
+	pepe.bonoResultado(bonoResPorcentaje)
+	pepe.bonoPresentismo(bonoNulo)
+	assert.that(pepe.sueldo() == 16500)
+  }
+  test "Caso 3: Pepe es cadete, tiene bono por resultado por porcentaje, bono por presentismo normal y nunca faltó" {
+	pepe.categoria(categoriaCadete)
+	pepe.bonoResultado(bonoResPorcentaje)
+	pepe.bonoPresentismo(bonoPresNormal)
+	pepe.faltas(0)
+	assert.that(pepe.sueldo() == 24000)
+  }
+  test "Caso 4: Pepe es cadete, tiene bono por resultados por porcentaje, bono por presentismo normal y faltó 1 día" {
+	pepe.categoria(categoriaCadete)
+	pepe.bonoResultado(bonoResPorcentaje)
+	pepe.bonoPresentismo(bonoPresNormal)
+	pepe.faltas(1)
+	assert.that(pepe.sueldo() == 23000)
+  }
+}
