@@ -1,0 +1,69 @@
+import pepe.*
+import pepeBonus.*
+describe "Probando a Sofia" {
+  test "Sueldo" {
+    sofia.categoria(categoriaCadete)
+    assert.equals(26000, sofia.sueldoNeto())
+  }
+  test "El 30% de Sofia no aplica a pepe"{
+    pepe.categoria(categoriaCadete)
+    assert.notThat(pepe.sueldoNeto() == 26000)
+  }
+}
+describe "Nuevas categorias" {
+  test "Categoria: Vendedor" {
+    categoriaVendedor.desactivarAumentoPorMuchasVentas()
+    assert.equals(16000, categoriaVendedor.neto())
+    categoriaVendedor.activarAumentoPorMuchasVentas()
+    assert.equals(20000, categoriaVendedor.neto())
+  }
+  test "Modificador medio tiempo"{
+    medioTiempo.categoriaBase(categoriaGerente)
+    assert.equals(7500, medioTiempo.neto())
+  }
+}
+
+describe "Probando a Roque" {
+  test "Neto" {
+    assert.equals(28000, roque.sueldoNeto())
+  }
+  test "Sueldo" {
+    roque.bonoResultado(bonoResFijo)
+    assert.equals(37800, roque.sueldo())
+  }
+}
+
+describe "Probando a Ernesto" {
+  method initialize(){
+    ernesto.compañero(roque)
+    ernesto.faltas(0)
+  }
+  test "Neto" {
+    assert.equals(roque.sueldoNeto(), ernesto.sueldoNeto())
+  }
+  test "Sueldo" {
+    assert.equals(30000, ernesto.sueldo())
+  }
+}
+
+describe "Ejercicio bonus: Casos de prueba" {
+  method initialize(){
+    medioTiempo.categoriaBase(categoriaCadete)
+    pepe.categoria(medioTiempo)
+    pepe.bonoResultado(bonoResPorcentaje)
+    pepe.bonoPresentismo(bonoPresDemagogico)
+    pepe.faltas(1)
+  }
+  test "Caso 1: Pepe tiene categoria cadete y medio tiempo. Tiene bono por resultados de porcentaje, y bono por presentismo demagógico. Falto 1 vez" {
+    assert.equals(11500, pepe.sueldo())
+  }
+  test "Caso 2: Roque tiene bono por resultados monto fijo" {
+    roque.bonoResultado(bonoResFijo)
+    assert.equals(37800, roque.sueldo())
+  }
+  test "Caso 3: Ernesto tiene como compañero a Pepe y bono por presentismo de ajuste" {
+    ernesto.compañero(pepe)
+    ernesto.bonoPresentismo(bonoPresAjuste)
+    assert.equals(10100, ernesto.sueldo())
+  }
+}
