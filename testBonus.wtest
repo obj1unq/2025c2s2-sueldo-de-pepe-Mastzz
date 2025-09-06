@@ -17,4 +17,8 @@ describe "Nuevas categorias" {
     categoriaVendedor.activarAumentoPorMuchasVentas()
     assert.equals(20000, categoriaVendedor.neto())
   }
+  test "Modificador medio tiempo"{
+    medioTiempo.categoriaBase(categoriaGerente)
+    assert.equals(7500, medioTiempo.neto())
+  }
 }

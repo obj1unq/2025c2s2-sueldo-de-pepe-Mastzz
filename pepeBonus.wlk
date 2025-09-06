@@ -37,3 +37,14 @@ object medioTiempo {
     return categoriaBase.neto() / 2
   }
 }
+
+// 2 personas mas
+object Roque {
+  var property bonoResultado = bonoResPorcentaje
+  method sueldoNeto(){
+    return 28000
+  }
+  method sueldo(){
+    return self.sueldoNeto() + self.bonoResultado() + 9000
+  }
+}
