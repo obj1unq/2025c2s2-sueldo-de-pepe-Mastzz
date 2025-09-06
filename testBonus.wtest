@@ -22,3 +22,13 @@ describe "Nuevas categorias" {
     assert.equals(7500, medioTiempo.neto())
   }
 }
+
+describe "Probando a Roque" {
+  test "Neto" {
+    assert.equals(28000, roque.sueldoNeto())
+  }
+  test "Sueldo" {
+    roque.bonoResultado(bonoResFijo)
+    assert.equals(37800, roque.sueldo())
+  }
+}

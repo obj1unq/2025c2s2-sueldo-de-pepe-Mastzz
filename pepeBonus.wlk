@@ -39,12 +39,15 @@ object medioTiempo {
 }
 
 // 2 personas mas
-object Roque {
+object roque {
   var property bonoResultado = bonoResPorcentaje
   method sueldoNeto(){
     return 28000
   }
   method sueldo(){
-    return self.sueldoNeto() + self.bonoResultado() + 9000
+    return self.sueldoNeto() + self.bonoPorResultado() + 9000
+  }
+  method bonoPorResultado(){
+    return bonoResultado.valor(self)
   }
 }
