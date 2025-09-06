@@ -49,6 +49,10 @@ describe "Bono por presentismo" {
 	assert.equals(0, pepe.extraPorPresentismo())
   }
   test "Bono: Demagogico"{
-
+	pepe.categoria(categoriaGerente)
+	pepe.bonoPresentismo(bonoPresDemagogico)
+	assert.equals(500, pepe.extraPorPresentismo())
+	pepe.categoria(categoriaCadete)
+	assert.equals(300, pepe.extraPorPresentismo())
   }
 }
